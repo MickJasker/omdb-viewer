@@ -1,0 +1,28 @@
+.showTitle {
+  display: grid;
+
+  .season {
+    grid-row: 1 / 2;
+  }
+
+  .heading {
+    grid-row: 2 / 3;
+    font-size: 40px;
+  }
+
+  .plot {
+    grid-row: 3 / 4;
+    text-wrap: balance;
+    max-inline-size: 500px;
+  }
+
+  p {
+    font-size: 23px;
+  }
+
+  @media (min-width: 768px) {
+    .heading {
+      font-size: 73px;
+    }
+  }
+}

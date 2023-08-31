@@ -1,3 +1,34 @@
-.main {
+.home {
+  display: grid;
+  grid-template-areas:
+    'main'
+    'aside';
+  min-block-size: 100svh;
+  grid-template-rows: 600px auto;
 
+  @media (min-width: 1024px) {
+    grid-template-columns: 1fr 400px;
+    grid-template-areas:
+        'main aside';
+    grid-template-rows: auto;
+  }
+
+  @media (min-width: 1280px) {
+    grid-template-columns: 1fr 600px;
+  }
+}
+
+.main {
+  grid-area: main;
+  padding: 100px max(20px, 5vw);
+
+  @media (min-width: 1024px) {
+    padding-block: 0;
+    display: grid;
+    align-items: center;
+  }
+}
+
+.aside {
+  grid-area: aside;
 }

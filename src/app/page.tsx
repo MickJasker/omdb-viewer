@@ -3,7 +3,7 @@ import { getSeason } from '@/api/getSeason';
 import { getEpisode } from '@/api/getEpisode';
 import { getShow } from '@/api/getShow';
 import { Metadata } from 'next';
-import Link from 'next/link';
+import { ShowTitle } from '@/components/ShowTitle/ShowTitle';
 
 const imdbId = 'tt0804484';
 
@@ -21,32 +21,20 @@ export default async function Home() {
   const episodes = await Promise.all(season.episodes.map((episode) => getEpisode(episode.imdbId)));
 
   return (
-    <main className={styles.main}>
-      <h1>
-        {show.title} ({show.year})
-      </h1>
-
-      <p>{show.plot}</p>
-
-      <pre>{JSON.stringify(show, null, 2)}</pre>
-
-      <pre>{JSON.stringify(season, null, 2)}</pre>
-
-      {episodes.length > 0 && (
+    <div className={styles.home}>
+      <main className={styles.main}>
+        <ShowTitle heading={show.title} season={season.season} plot={show.plot} />
+      </main>
+      <aside>
+        <h2>Episodes</h2>
         <ul>
-          {episodes.map((episode, index) => (
+          {episodes.map((episode) => (
             <li key={episode.imdbId}>
-              <h2>{episode.title}</h2>
-              <p>{episode.plot}</p>
-              <p>id{episode.plot}</p>
-              <pre>{JSON.stringify(episode, null, 2)}</pre>
-              <small>
-                {episode.released} | {episode.runtime} | {episode.imdbRating}
-              </small>
+              {episode.title} ({episode.year})
             </li>
           ))}
         </ul>
-      )}
-    </main>
+      </aside>
+    </div>
   );
 }

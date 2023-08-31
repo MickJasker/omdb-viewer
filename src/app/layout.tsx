@@ -1,13 +1,14 @@
 import './globals.scss';
-import { Inter } from 'next/font/google';
 import type { ReactNode } from 'react';
-
-const inter = Inter({ subsets: ['latin'] });
+import { helveticaNeue } from '@/fonts/fonts';
+import classNames from 'classnames';
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={classNames(helveticaNeue.className, helveticaNeue.variable)}>
+        {children}
+      </body>
     </html>
   );
 }
