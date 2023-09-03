@@ -1,4 +1,65 @@
 .episodeDetails {
   display: grid;
-  grid-template-rows: 2fr 1fr;
+  grid-template-rows: 300px auto;
+  block-size: 100%;
+
+  @media (min-width: 1024px) {
+    grid-template-rows: 2fr 1fr;
+  }
+
+  .poster {
+    position: relative;
+
+    img {
+      object-fit: cover;
+    }
+  }
+
+  .details, .misc {
+    padding: 50px 38px;
+  }
+
+  .details {
+    .title {
+      font-size: 27px;
+      margin-block-start: 19px;
+    }
+
+    .plot {
+      font-size: 19px;
+    }
+  }
+
+  .misc {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    block-size: calc(200px / 3 * 2);
+    border-block-end: 1px solid rgb(151 151 151 / 20%);
+
+    .rating {
+      display: flex;
+      align-items: center;
+      gap: 17px;
+    }
+
+    .icon {
+      block-size: 28px;
+      inline-size: 28px;
+      color: #EFD358;
+    }
+  }
+}
+
+.aside {
+  background: #fff;
+  color: #000;
+  display: grid;
+  box-shadow: 0 0 100px rgb(0 0 0 / 20%);
+  z-index: 1;
+
+  > * {
+    grid-row: 1 / 2;
+    grid-column: 1 / 2;
+  }
 }

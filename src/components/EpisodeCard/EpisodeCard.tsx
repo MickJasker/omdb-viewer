@@ -7,13 +7,11 @@ import styles from './EpisodeCard.module.scss';
 export function EpisodeCard({
   title,
   plot,
-  poster,
   marker,
   onClick,
 }: {
   title: string;
   plot: string;
-  poster: string;
   marker: string | number;
   onClick?(): void;
 } & HTMLAttributes<HTMLDivElement>): ReactElement {
@@ -27,7 +25,12 @@ export function EpisodeCard({
         </h2>
 
         <div className={styles.poster}>
-          <Image src={poster} alt="" fill sizes="(max-width: 768px) 100vw, 200px" />
+          <Image
+            src={`/assets/episode-${marker}.jpg`}
+            alt=""
+            fill
+            sizes="(max-width: 768px) 100vw, 200px"
+          />
           <span className={styles.marker}>{marker}</span>
         </div>
 

@@ -2,7 +2,7 @@
 
 import type { ComponentProps, ReactElement } from 'react';
 import { useCallback, useMemo, useRef } from 'react';
-import { motion, useAnimate } from 'framer-motion';
+import { motion, useAnimate, useWillChange } from 'framer-motion';
 import { useSearchParams } from 'next/navigation';
 import { clamp } from 'lodash-es';
 import { useRouter } from 'next/navigation';
@@ -81,6 +81,9 @@ export function Carousel({
             right: 0,
           })}
           ref={scope}
+          style={{
+            willChange: useWillChange(),
+          }}
         >
           {items.map((item, index) => (
             <li
