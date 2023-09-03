@@ -4,6 +4,7 @@ import { getEpisode } from '@/api/getEpisode';
 import { getShow } from '@/api/getShow';
 import { Metadata } from 'next';
 import { ShowTitle } from '@/components/ShowTitle/ShowTitle';
+import { Carousel } from '@/components/Carousel/Carousel';
 
 const imdbId = 'tt0804484';
 
@@ -24,17 +25,9 @@ export default async function Home() {
     <div className={styles.home}>
       <main className={styles.main}>
         <ShowTitle heading={show.title} season={season.season} plot={show.plot} />
+        <Carousel items={episodes} />
       </main>
-      <aside>
-        <h2>Episodes</h2>
-        <ul>
-          {episodes.map((episode) => (
-            <li key={episode.imdbId}>
-              {episode.title} ({episode.year})
-            </li>
-          ))}
-        </ul>
-      </aside>
+      <aside></aside>
     </div>
   );
 }

@@ -1,0 +1,67 @@
+.episodeCard {
+  display: grid;
+
+  .poster {
+    grid-row: 1 / 2;
+    aspect-ratio: 3 / 2;
+    position: relative;
+    margin-block-end: 19px;
+    background: black;
+    overflow: hidden;
+
+    img {
+      object-fit: cover;
+      opacity: 0.6;
+      transition: opacity 0.2s ease-in-out, scale 0.5s ease-in-out;
+    }
+
+    [data-active="true"] & {
+      img {
+        opacity: 1;
+      }
+    }
+  }
+
+  .link {
+    display: contents;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .title {
+    grid-row: 2 / 3;
+    margin-block-end: 10px;
+    font-size: 15px;
+    font-weight: 700;
+  }
+
+  .plot {
+    grid-row: 3 / 4;
+    text-wrap: balance;
+    font-size: 13px;
+    opacity: 0.8;
+  }
+
+  .marker {
+    position: absolute;
+    inset-block-start: 0;
+    inset-inline-start: 0;
+    display: grid;
+    place-content: center;
+    aspect-ratio: 1;
+    block-size: 30px;
+    font-size: 16px;
+    color: black;
+    background-color: white;
+    font-weight: 700;
+    padding-block-start: 4px;
+  }
+
+  &:hover {
+    .poster {
+      img {
+        scale: 1.05;
+      }
+    }
+  }
+}

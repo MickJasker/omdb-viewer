@@ -1,5 +1,7 @@
 .showTitle {
   display: grid;
+  padding-inline: max(20px, 5vw);
+  align-self: center;
 
   .season {
     grid-row: 1 / 2;
